@@ -111,4 +111,29 @@
 
 		portfolioIsotope.isotope({ filter: $(this).data('filter') });
 	});
+
+	const paymentForm = document.getElementById('paymentForm');
+	paymentForm.addEventListener('submit', payWithPaystack, false);
+
+	function payWithPaystack(e) {
+		e.preventDefault();
+
+		let handler = PaystackPop.setup({
+			key: 'pk_live_55835ceabc1e046ed580f42335d44d78e5ad0f43', // Replace with your public key
+			email: document.getElementById('email-address').value,
+			amount: document.getElementById('amount').value * 100, // Convert to kobo
+			ref: '' + Math.floor(Math.random() * 1000000000 + 1), // Generate pseudo-unique reference
+			label: 'Donation from ' + document.getElementById('name').value,
+			onClose: function () {
+				alert('Window closed.');
+			},
+			callback: function (response) {
+				let message = 'Payment complete! Reference: ' + response.reference;
+				alert(message);
+				// You can also handle post-payment actions here (e.g., save the payment details to your database)
+			},
+		});
+
+		handler.openIframe();
+	}
 })(jQuery);

@@ -188,15 +188,14 @@
 							<p class="mb-4 pb-2">
 								<strong>Account Number: 1234567890</strong>
 							</p>
-							<p class="mb-4 pb-2">
-								<strong>Bank Name: abc bank</strong>
-							</p>
+							<p class="mb-4 pb-2"><strong>Bank Name: abc bank</strong></p>
 
-							<form>
+							<form id="paymentForm">
 								<div class="row g-3">
 									<div class="col-12 col-sm-6">
 										<input
 											type="text"
+											id="name"
 											class="form-control border-0"
 											placeholder="Your Name"
 											style="height: 55px"
@@ -205,9 +204,11 @@
 									<div class="col-12 col-sm-6">
 										<input
 											type="email"
+											id="email-address"
 											class="form-control border-0"
 											placeholder="Your Email"
 											style="height: 55px"
+											required
 										/>
 									</div>
 									<div class="col-12 col-sm-6">
@@ -220,10 +221,12 @@
 									</div>
 									<div class="col-12 col-sm-6">
 										<input
-											type="text"
+											type="number"
+											id="amount"
 											class="form-control border-0"
 											placeholder="Amount Donated"
 											style="height: 55px"
+											required
 										/>
 									</div>
 									<div class="col-12">
@@ -244,6 +247,7 @@
 				</div>
 			</div>
 		</div>
+
 		<!-- Quote End -->
 
 		<!-- Footer Start -->
@@ -344,7 +348,7 @@
 		<script src="lib/owlcarousel/owl.carousel.min.js"></script>
 		<script src="lib/isotope/isotope.pkgd.min.js"></script>
 		<script src="lib/lightbox/js/lightbox.min.js"></script>
-
+		<script src="https://js.paystack.co/v1/inline.js"></script>
 		<!-- Template Javascript -->
 		<script src="js/main.js"></script>
 	</body>
