@@ -1,8 +1,10 @@
 /********** Template CSS **********/
 :root {
-	--primary: #ab7442;
+	--primary: #000000;
 	--light: #f5f5f5;
 	--dark: #353535;
+	--white: #ffffff;
+	--grey: #eeeeee;
 }
 
 .fw-medium {
@@ -47,7 +49,7 @@
 
 .btn.btn-primary,
 .btn.btn-secondary {
-	color: #ffffff;
+	color: var(--white);
 }
 
 .btn-square {
@@ -88,16 +90,21 @@
 .navbar-light .navbar-nav .nav-link {
 	margin-right: 30px;
 	padding: 25px 0;
-	color: #ffffff;
+	color: var(--white);
 	font-size: 15px;
 	font-weight: 500;
 	text-transform: uppercase;
 	outline: none;
+	transition: 0.2s all ease;
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
 	color: var(--primary);
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+	transform: translateY(-2px);
 }
 
 @media (max-width: 991.98px) {
@@ -107,7 +114,7 @@
 	}
 
 	.navbar-light .navbar-nav {
-		border-top: 1px solid #eeeeee;
+		border-top: 1px solid var(--grey);
 	}
 }
 
@@ -124,6 +131,11 @@
 .navbar-light.sticky-top {
 	top: -100px;
 	transition: 0.5s;
+}
+
+.navbar .nav-item .dropdown-menu .dropdown-item:hover {
+	background-color: var(--dark);
+	color: var(--light);
 }
 
 @media (min-width: 992px) {
@@ -189,17 +201,17 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: #ffffff;
+	color: var(--white);
 	background: transparent;
-	border: 1px solid #ffffff;
+	border: 1px solid var(--white);
 	font-size: 22px;
 	transition: 0.5s;
 }
 
 .header-carousel .owl-nav .owl-prev:hover,
 .header-carousel .owl-nav .owl-next:hover {
-	background: var(--primary);
-	border-color: var(--primary);
+	background: var(--dark);
+	border-color: var(--dark);
 }
 
 .header-carousel .owl-dots {
@@ -220,7 +232,7 @@
 	width: 15px;
 	height: 15px;
 	background: transparent;
-	border: 1px solid #ffffff;
+	border: 1px solid var(--white);
 	transition: 0.5s;
 }
 
@@ -232,12 +244,12 @@
 	top: 4px;
 	left: 4px;
 	background: transparent;
-	border: 1px solid #ffffff;
+	border: 1px solid var(--white);
 }
 
 .header-carousel .owl-dot.active {
-	background: var(--primary);
-	border-color: var(--primary);
+	background: var(--dark);
+	border-color: var(--dark);
 }
 
 .page-header {
@@ -248,6 +260,11 @@
 
 .breadcrumb-item + .breadcrumb-item::before {
 	color: var(--light);
+}
+
+.read-more-btn,
+.donate-btn {
+	border-radius: 50px;
 }
 
 /*** Section Title ***/
