@@ -252,12 +252,6 @@
 	border-color: var(--dark);
 }
 
-.page-header {
-	background: linear-gradient(rgba(53, 53, 53, 0.7), rgba(53, 53, 53, 0.7)),
-		url(../img/carousel-1.jpg) center center no-repeat;
-	background-size: cover;
-}
-
 .breadcrumb-item + .breadcrumb-item::before {
 	color: var(--light);
 }
@@ -298,6 +292,11 @@
 
 .section-title.text-start h1::before {
 	display: none;
+}
+
+.form:focus {
+	outline: 3px solid var(--grey) !important;
+	border: none;
 }
 
 /*** About ***/
