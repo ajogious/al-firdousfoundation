@@ -119,7 +119,7 @@
 		e.preventDefault();
 
 		let handler = PaystackPop.setup({
-			key: 'pk_live_55835ceabc1e046ed580f42335d44d78e5ad0f43', // Replace with your public key
+			key: 'pk_test_506cea3e8058434021b7655d3c41406f88220df3', // Replace with your public key
 			email: document.getElementById('email-address').value,
 			amount: document.getElementById('amount').value * 100, // Convert to kobo
 			ref: '' + Math.floor(Math.random() * 1000000000 + 1), // Generate pseudo-unique reference

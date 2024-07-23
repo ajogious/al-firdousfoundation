@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Al - Firdouse Humaniterian Foundation</title>
+		<title>Al - Firdous Humanitarian Foundation</title>
 		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 		<meta content="" name="keywords" />
 		<meta content="" name="description" />
@@ -47,7 +47,7 @@
 			class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
 		>
 			<div
-				class="spinner-grow text-primary"
+				class="spinner-grow text-primary bg-dark"
 				style="width: 3rem; height: 3rem"
 				role="status"
 			>
@@ -61,35 +61,64 @@
 			<div class="row gx-0 d-none d-lg-flex">
 				<div class="col-lg-7 px-5 text-start">
 					<div class="h-100 d-inline-flex align-items-center py-3 me-4">
-						<small class="fa fa-map-marker-alt text-primary me-2"></small>
+						<small class="fa fa-map-marker-alt text-dark me-2"></small>
 						<small>Abuja, Nigeria</small>
 					</div>
 					<div class="h-100 d-inline-flex align-items-center py-3">
-						<small class="far fa-clock text-primary me-2"></small>
+						<small class="fa fa-clock text-dark me-2"></small>
 						<small id="day">Fri - </small
-						><small id="time" class="ps-1"> 09:00 PM</small>
+						><small id="time" class="ps-1"> 09:00 PM </small>
 					</div>
 				</div>
 				<div class="col-lg-5 px-5 text-end">
 					<div class="h-100 d-inline-flex align-items-center py-3 me-4">
-						<small class="fa fa-phone-alt text-primary me-2"></small>
-						<small>+234 803 4567 890</small>
+						<div class="phone-nums">
+							<div>
+								<small class="fa fa-phone-alt text-dark me-2"></small>
+								<small>+234 816 2755 422</small>
+							</div>
+							<div>
+								<small class="fa fa-phone-alt text-dark me-2"></small>
+								<small>+234 805 7861 999</small>
+							</div>
+						</div>
 					</div>
 					<div class="h-100 d-inline-flex align-items-center">
-						<a class="btn btn-sm-square bg-white text-primary me-1" href=""
-							><i class="fab fa-facebook-f"></i
+						<a
+							class="btn btn-sm-square bg-white text-dark me-1"
+							target="_blank"
+							href=""
+							><i class="fab fa-facebook"></i
 						></a>
-						<a class="btn btn-sm-square bg-white text-primary me-1" href=""
+						<a
+							class="btn btn-sm-square bg-white text-dark me-1"
+							target="_blank"
+							href=""
 							><i class="fab fa-twitter"></i
 						></a>
-						<a class="btn btn-sm-square bg-white text-primary me-1" href=""
-							><i class="fab fa-linkedin-in"></i
+						<a
+							class="btn btn-sm-square bg-white text-dark me-1"
+							target="_blank"
+							href="https://wa.me/2348162755422"
+							><i class="bi bi-whatsapp"></i
 						></a>
-						<a class="btn btn-sm-square bg-white text-primary me-0" href=""
+						<a
+							class="btn btn-sm-square bg-white text-dark me-0"
+							target="_blank"
+							href=""
 							><i class="fab fa-instagram"></i
 						></a>
-						<a class="btn btn-sm-square bg-white text-primary me-0" href=""
+						<a
+							class="btn btn-sm-square bg-white text-dark me-0"
+							target="_blank"
+							href=""
 							><i class="fab fa-tiktok"></i
+						></a>
+						<a
+							class="btn btn-sm-square bg-white text-dark me-0"
+							target="_blank"
+							href="https://www.youtube.com/@al-firdousfoundation"
+							><i class="bi bi-youtube"></i
 						></a>
 					</div>
 				</div>
@@ -98,12 +127,12 @@
 		<!-- Topbar End -->
 
 		<!-- Navbar Start -->
-		<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+		<nav class="navbar navbar-expand-lg bg-light navbar-light sticky-top p-0">
 			<a
 				href="index.html"
 				class="navbar-brand d-flex align-items-center px-4 px-lg-5"
 			>
-				<h2 class="m-0 text-primary">Al-fHf</h2>
+				<img src="img/logo.png" alt="" style="width: 70px; height: 70px" />
 			</a>
 			<button
 				type="button"
@@ -115,7 +144,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto p-4 p-lg-0">
-					<a href="index.html" class="nav-item nav-link active">Home</a>
+					<a href="index.html" class="nav-item nav-link">Home</a>
 					<a href="about.html" class="nav-item nav-link">About</a>
 					<a href="service.html" class="nav-item nav-link active">Service</a>
 					<a href="project.html" class="nav-item nav-link">Project</a>
@@ -137,7 +166,7 @@
 				</div>
 				<a
 					href="donate.html"
-					class="btn btn-primary py-4 px-lg-5 d-none d-lg-block"
+					class="btn btn-dark py-4 px-lg-5 d-none d-lg-block"
 					>Donate<i class="fa fa-arrow-right ms-3"></i
 				></a>
 			</div>
@@ -161,19 +190,18 @@
 				<div class="row g-4">
 					<div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
 						<div class="service-item">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="img/service-1.jpg" alt="" />
+							<div class="overflow-hidden" style="height: 300px">
+								<img class="img-fluid" src="img/serv1.jpg" alt="" />
 							</div>
 							<div
 								class="p-4 text-center border border-5 border-light border-top-0"
 							>
-								<h4 class="mb-3">Services 1</h4>
+								<h4 class="mb-3">Community Service 1</h4>
 								<p>
-									Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam
-									lorem diam.
+									Some food items where distributed to this community for aid
 								</p>
 								<!-- links to be set either to youtube or to any social media -->
-								<a class="fw-medium" href=""
+								<a class="fw-medium text-dark" href=""
 									>Read More<i class="fa fa-arrow-right ms-2"></i
 								></a>
 							</div>
@@ -181,18 +209,17 @@
 					</div>
 					<div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
 						<div class="service-item">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="img/service-2.jpg" alt="" />
+							<div class="overflow-hidden" style="height: 300px">
+								<img class="img-fluid" src="img/serv2.jpg" alt="" />
 							</div>
 							<div
 								class="p-4 text-center border border-5 border-light border-top-0"
 							>
-								<h4 class="mb-3">Services 2</h4>
+								<h4 class="mb-3">Medical Support Service 1</h4>
 								<p>
-									Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam
-									lorem diam.
+									A medical support was provided to the woman on eye surgery
 								</p>
-								<a class="fw-medium" href=""
+								<a class="fw-medium text-dark" href=""
 									>Read More<i class="fa fa-arrow-right ms-2"></i
 								></a>
 							</div>
@@ -200,18 +227,17 @@
 					</div>
 					<div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
 						<div class="service-item">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="img/service-3.jpg" alt="" />
+							<div class="overflow-hidden" style="height: 300px">
+								<img class="img-fluid" src="img/serv3.jpg" alt="" />
 							</div>
 							<div
 								class="p-4 text-center border border-5 border-light border-top-0"
 							>
-								<h4 class="mb-3">Services 3</h4>
+								<h4 class="mb-3">Community Service 2</h4>
 								<p>
-									Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam
-									lorem diam.
+									Some food items where distributed to this community for aid
 								</p>
-								<a class="fw-medium" href=""
+								<a class="fw-medium text-dark" href=""
 									>Read More<i class="fa fa-arrow-right ms-2"></i
 								></a>
 							</div>
@@ -219,18 +245,17 @@
 					</div>
 					<div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
 						<div class="service-item">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="img/service-4.jpg" alt="" />
+							<div class="overflow-hidden" style="height: 300px">
+								<img class="img-fluid" src="img/serv4.jpg" alt="" />
 							</div>
 							<div
 								class="p-4 text-center border border-5 border-light border-top-0"
 							>
-								<h4 class="mb-3">Services 4r</h4>
+								<h4 class="mb-3">Community Service 3</h4>
 								<p>
-									Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam
-									lorem diam.
+									Some food items where distributed to this community for aid
 								</p>
-								<a class="fw-medium" href=""
+								<a class="fw-medium text-dark" href=""
 									>Read More<i class="fa fa-arrow-right ms-2"></i
 								></a>
 							</div>
@@ -238,18 +263,17 @@
 					</div>
 					<div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
 						<div class="service-item">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="img/service-5.jpg" alt="" />
+							<div class="overflow-hidden" style="height: 300px">
+								<img class="img-fluid" src="img/serv5.jpg" alt="" />
 							</div>
 							<div
 								class="p-4 text-center border border-5 border-light border-top-0"
 							>
-								<h4 class="mb-3">Services 5</h4>
+								<h4 class="mb-3">Medical Support Service 3</h4>
 								<p>
-									Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam
-									lorem diam.
+									A medical support was provided to the woman on eye surgery
 								</p>
-								<a class="fw-medium" href=""
+								<a class="fw-medium text-dark" href=""
 									>Read More<i class="fa fa-arrow-right ms-2"></i
 								></a>
 							</div>
@@ -257,18 +281,17 @@
 					</div>
 					<div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
 						<div class="service-item">
-							<div class="overflow-hidden">
-								<img class="img-fluid" src="img/service-6.jpg" alt="" />
+							<div class="overflow-hidden" style="height: 300px">
+								<img class="img-fluid" src="img/serv6.jpg" alt="" />
 							</div>
 							<div
 								class="p-4 text-center border border-5 border-light border-top-0"
 							>
-								<h4 class="mb-3">Services 5</h4>
+								<h4 class="mb-3">Community Service 4</h4>
 								<p>
-									Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam
-									lorem diam.
+									Some food items where distributed to this community for aid
 								</p>
-								<a class="fw-medium" href=""
+								<a class="fw-medium text-dark" href=""
 									>Read More<i class="fa fa-arrow-right ms-2"></i
 								></a>
 							</div>
@@ -279,16 +302,16 @@
 		</div>
 		<!-- Service End -->
 
-		<!-- Quote Start -->
+		<!--  Get Our Book Start -->
 		<div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
 			<div class="container quote px-lg-0">
 				<div class="row g-0 mx-lg-0">
 					<div class="col-lg-6 ps-lg-0" style="min-height: 400px">
 						<div class="position-relative h-100">
 							<img
-								class="position-absolute img-fluid w-100 h-100"
-								src="img/quote.jpg"
-								style="object-fit: cover"
+								class="position-absolute p-5 img-fluid w-100 h-100"
+								src="img/book.png"
+								style="object-fit: contain"
 								alt=""
 							/>
 						</div>
@@ -299,56 +322,44 @@
 					>
 						<div class="p-lg-5 pe-lg-0">
 							<div class="section-title text-start">
-								<h1 class="display-5 mb-4">Be a Voluntee</h1>
+								<h1 class="display-5 mb-4">Get Our Book</h1>
 							</div>
 							<p class="mb-4 pb-2">
-								Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-								Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-								sed stet lorem sit clita duo justo erat amet
+								Get this our book to give you the insight of your dream
+								interpretation
 							</p>
 							<form>
 								<div class="row g-3">
 									<div class="col-12 col-sm-6">
 										<input
 											type="text"
-											class="form-control border-0"
+											class="form-control border-0 form"
 											placeholder="Your Name"
 											style="height: 55px"
+											required
 										/>
 									</div>
 									<div class="col-12 col-sm-6">
 										<input
 											type="email"
-											class="form-control border-0"
+											class="form-control border-0 form"
 											placeholder="Your Email"
 											style="height: 55px"
+											required
 										/>
 									</div>
-									<div class="col-12 col-sm-6">
+									<div class="col-12">
 										<input
 											type="text"
-											class="form-control border-0"
+											class="form-control border-0 form"
 											placeholder="Your Mobile"
 											style="height: 55px"
+											required
 										/>
 									</div>
-									<div class="col-12 col-sm-6">
-										<select class="form-select border-0" style="height: 55px">
-											<option selected>Select A Service</option>
-											<option value="1">Service 1</option>
-											<option value="2">Service 2</option>
-											<option value="3">Service 3</option>
-										</select>
-									</div>
 									<div class="col-12">
-										<textarea
-											class="form-control border-0"
-											placeholder="Special Note"
-										></textarea>
-									</div>
-									<div class="col-12">
-										<button class="btn btn-primary w-100 py-3" type="submit">
-											Submit
+										<button class="btn btn-dark w-100 py-3" type="submit">
+											Get For N20,000
 										</button>
 									</div>
 								</div>
@@ -358,7 +369,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- Quote End -->
+		<!--  Get Our Book End -->
 
 		<!-- Testimonial Start -->
 		<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -437,10 +448,13 @@
 							Nigeria
 						</p>
 						<p class="mb-2">
-							<i class="fa fa-phone-alt me-3"></i>+234 803 4567 890
+							<i class="fa fa-phone-alt me-3"></i>+234 816 2755 422
 						</p>
 						<p class="mb-2">
-							<i class="fa fa-envelope me-3"></i>info@example.com
+							<i class="fa fa-phone-alt me-3"></i>+234 805 7861 999
+						</p>
+						<p class="mb-2">
+							<i class="fa fa-envelope me-3"></i>alfirdoushumanitarian@gmail.com
 						</p>
 						<div class="d-flex pt-2">
 							<a class="btn btn-outline-light btn-social" href=""
@@ -449,15 +463,18 @@
 							<a class="btn btn-outline-light btn-social" href=""
 								><i class="fab fa-facebook-f"></i
 							></a>
-							<a class="btn btn-outline-light btn-social" href=""
+							<a
+								class="btn btn-outline-light btn-social"
+								href="https://www.youtube.com/@al-firdousfoundation"
 								><i class="fab fa-youtube"></i
 							></a>
-							<a class="btn btn-outline-light btn-social" href=""
-								><i class="fab fa-linkedin-in"></i
+							<a
+								class="btn btn-outline-light btn-social"
+								href="https://wa.me/2348162755422"
+								><i class="bi bi-whatsapp"></i
 							></a>
 						</div>
 					</div>
-
 					<div class="col-lg-3 col-md-6">
 						<h4 class="text-light mb-4">Quick Links</h4>
 						<a class="btn btn-link" href="index.html">Home</a>
@@ -467,16 +484,16 @@
 					</div>
 					<div class="col-lg-3 col-md-6">
 						<h4 class="text-light mb-4">Newsletter</h4>
-						<p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+						<p>Subscribe to our newsletter.</p>
 						<div class="position-relative mx-auto" style="max-width: 400px">
 							<input
-								class="form-control border-0 w-100 py-3 ps-4 pe-5"
+								class="form-control border-0 w-100 py-3 ps-4 pe-5 form"
 								type="text"
 								placeholder="Your email"
 							/>
 							<button
 								type="button"
-								class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
+								class="btn btn-dark py-2 position-absolute top-0 end-0 mt-2 me-2"
 							>
 								SignUp
 							</button>
@@ -505,9 +522,7 @@
 		<!-- Footer End -->
 
 		<!-- Back to Top -->
-		<a
-			href="#"
-			class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"
+		<a href="#" class="btn btn-lg btn-dark btn-lg-square rounded-0 back-to-top"
 			><i class="bi bi-arrow-up"></i
 		></a>
 
