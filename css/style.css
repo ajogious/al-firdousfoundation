@@ -1,10 +1,20 @@
 /********** Template CSS **********/
 :root {
-	--primary: #a43838;
+	/* --primary: #a43838;
+	--light: #f5f5f5;
+	--dark: #353535;
+	--white: #ffffff;
+	--grey: #eeeeee; */
+
+	--primary: #ab7442;
 	--light: #f5f5f5;
 	--dark: #353535;
 	--white: #ffffff;
 	--grey: #eeeeee;
+}
+
+body {
+	background-color: var(--grey);
 }
 
 .fw-medium {
@@ -134,7 +144,7 @@
 }
 
 .navbar .nav-item .dropdown-menu .dropdown-item:hover {
-	background-color: var(--dark);
+	background-color: var(--primary);
 	color: var(--light);
 }
 
@@ -210,8 +220,8 @@
 
 .header-carousel .owl-nav .owl-prev:hover,
 .header-carousel .owl-nav .owl-next:hover {
-	background: var(--dark);
-	border-color: var(--dark);
+	background: var(--primary);
+	border-color: var(--primary);
 }
 
 .header-carousel .owl-dots {
@@ -249,7 +259,7 @@
 
 .header-carousel .owl-dot.active {
 	background: var(--dark);
-	border-color: var(--dark);
+	border-color: var(--primary);
 }
 
 .page-header {
@@ -285,7 +295,7 @@
 	width: 45px;
 	height: 5px;
 	bottom: 0;
-	background: var(--dark);
+	background: var(--primary);
 }
 
 .section-title h1::before {
