@@ -1,3 +1,7 @@
+<?php
+$status = $_GET['status'] ?? null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,10 +10,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
-
     <!-- Favicon -->
     <link href="img/logo.png" rel="icon" />
-
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,7 +19,6 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
       rel="stylesheet"
     />
-
     <!-- Icon Font Stylesheet -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -27,19 +28,15 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet" />
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
   </head>
-
   <body>
     <!-- Spinner Start -->
     <div
@@ -55,7 +52,6 @@
       </div>
     </div>
     <!-- Spinner End -->
-
     <!-- Topbar Start -->
     <div class="container-fluid p-0">
       <div class="row gx-0 d-none d-lg-flex">
@@ -125,7 +121,6 @@
       </div>
     </div>
     <!-- Topbar End -->
-
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top p-0">
       <a
@@ -172,7 +167,6 @@
       </div>
     </nav>
     <!-- Navbar End -->
-
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5">
       <div class="container py-5">
@@ -180,8 +174,7 @@
       </div>
     </div>
     <!-- Page Header End -->
-
-    <!-- Quote Start -->
+    <!-- Donation Section Start -->
     <div
       class="container-fluid bg-light overflow-hidden px-lg-0"
       style="margin: 6rem 0"
@@ -208,8 +201,9 @@
               </div>
               <p class="mb-4 pb-2">
                 To help us in this foundation, you can donate by using the below
-                bank or the below button to donate with a card.
+                bank account information or submit your donation details.
               </p>
+
               <table class="table table-bordered table-striped">
                 <thead class="table-primary">
                   <tr>
@@ -245,148 +239,91 @@
                   </tr>
                 </tbody>
               </table>
-
-              <!-- <p class="pb-2">
-                <strong class="text-primary"
-                  >ACCOUNT NAME: <br />AL-FIRDOUS HUMANITARIAN FOUNDATION
-                  ABUJA</strong
-                >
-              </p>
-              <p class="pb-2">
-                <strong class="text-primary"
-                  >Account Numbers: <br />
-                  0950147182. Currency(NGN)</strong
-                >
-                <br />
-                <strong class="text-primary">3000907668. Currency(GBP)</strong>
-                <br />
-                <strong class="text-primary">3000907675. Currency(USD)</strong>
-                <br />
-                <strong class="text-primary">3000907644. Currency(EUR)</strong>
-              </p>
-              <p class="mb-4 pb-2">
-                <strong class="text-primary">Bank Name: GT Bank</strong>
-              </p>
-
-              <!-- <form id="">
+              <br />
+              <!-- Donation Form -->
+              <form action="donation.php" method="POST">
+                <h2>Fill the below form after donation</h2>
                 <div class="row g-3">
                   <div class="col-12 col-sm-6">
                     <input
                       type="text"
-                      id="name"
+                      name="name"
                       class="form-control border-0"
                       placeholder="Your Name"
+                      required
                       style="height: 55px"
                     />
                   </div>
                   <div class="col-12 col-sm-6">
                     <input
                       type="email"
-                      id="email-address"
+                      name="email"
                       class="form-control border-0"
                       placeholder="Your Email"
-                      style="height: 55px"
                       required
+                      style="height: 55px"
                     />
                   </div>
                   <div class="col-12 col-sm-6">
                     <input
                       type="text"
+                      name="phone"
                       class="form-control border-0"
-                      placeholder="Your Mobile"
+                      placeholder="Your Phone"
                       style="height: 55px"
                     />
                   </div>
                   <div class="col-12 col-sm-6">
                     <input
                       type="number"
-                      id="amount"
+                      name="amount"
                       class="form-control border-0"
                       placeholder="Amount Donated"
-                      style="height: 55px"
                       required
+                      style="height: 55px"
                     />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <select
+                      name="currency"
+                      class="form-control border-0"
+                      style="height: 55px"
+                    >
+                      <option value="NGN">NGN</option>
+                      <option value="USD">USD</option>
+                      <option value="GBP">GBP</option>
+                      <option value="EUR">EUR</option>
+                    </select>
                   </div>
                   <div class="col-12">
                     <textarea
+                      name="note"
                       class="form-control border-0"
                       placeholder="Special Note"
                     ></textarea>
                   </div>
+
+                   <!-- Success / Error messages -->
+                  <?php if ($status === 'success'): ?>
+                    <div class="alert alert-success col-12">✅ Thank you! Your donation info has been sent.</div>
+                  <?php elseif ($status === 'error'): ?>
+                    <div class="alert alert-danger col-12">❌ Oops! Something went wrong. Please try again.</div>
+                  <?php endif; ?>
+
                   <div class="col-12">
                     <button class="btn btn-primary w-100 py-3" type="submit">
-                      Donated
+                      Submit Donation Info
                     </button>
                   </div>
                 </div>
-              </form> -->
-              <!-- <form
-                action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse"
-                method="POST"
-                target="_blank"
-              >
-                <div class="mb-3">
-                  <input
-                    type="text"
-                    name="entry.1234567890"
-                    class="form-control"
-                    placeholder="Full Name"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <input
-                    type="email"
-                    name="entry.2345678901"
-                    class="form-control"
-                    placeholder="Email Address"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <input
-                    type="text"
-                    name="entry.3456789012"
-                    class="form-control"
-                    placeholder="Phone Number"
-                  />
-                </div>
-                <div class="mb-3">
-                  <input
-                    type="number"
-                    name="entry.4567890123"
-                    class="form-control"
-                    placeholder="Amount Donated"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <select name="entry.5678901234" class="form-control">
-                    <option value="NGN">NGN</option>
-                    <option value="USD">USD</option>
-                    <option value="GBP">GBP</option>
-                    <option value="EUR">EUR</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <textarea
-                    name="entry.6789012345"
-                    class="form-control"
-                    placeholder="Special Note"
-                  ></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">
-                  Submit Donation Info
-                </button>
-              </form> -->
+              </form>
+              <!-- End Form -->
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Quote End -->
-
+    <!-- Donation Section End -->
     <!-- Footer Start -->
     <div
       class="container-fluid text-light footer mt-5 pt-5 wow fadeIn"
@@ -467,12 +404,10 @@
       </div>
     </div>
     <!-- Footer End -->
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-dark btn-lg-square rounded-0 back-to-top"
       ><i class="bi bi-arrow-up"></i
     ></a>
-
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -483,7 +418,6 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
   </body>

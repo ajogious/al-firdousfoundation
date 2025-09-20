@@ -3,14 +3,19 @@
   // copyright year
   document.getElementById("year").textContent = new Date().getFullYear();
   // Spinner
+  // Spinner
   var spinner = function () {
     setTimeout(function () {
       if ($("#spinner").length > 0) {
         $("#spinner").removeClass("show");
       }
-    }, 1);
+    }, 500); // delay a bit so it feels smooth
   };
-  spinner();
+
+  // Run after full page load
+  $(window).on("load", function () {
+    spinner();
+  });
 
   // Initiate the wowjs
   new WOW().init();
@@ -112,29 +117,4 @@
 
     portfolioIsotope.isotope({ filter: $(this).data("filter") });
   });
-
-  // const paymentForm = document.getElementById("paymentForm");
-  // paymentForm.addEventListener("submit", payWithPaystack, false);
-
-  function payWithPaystack(e) {
-    e.preventDefault();
-
-    let handler = PaystackPop.setup({
-      key: "pk_test_506cea3e8058434021b7655d3c41406f88220df3", // Replace with your public key
-      email: document.getElementById("email-address").value,
-      amount: document.getElementById("amount").value * 100, // Convert to kobo
-      ref: "" + Math.floor(Math.random() * 1000000000 + 1), // Generate pseudo-unique reference
-      label: "Donation from " + document.getElementById("name").value,
-      onClose: function () {
-        alert("Window closed.");
-      },
-      callback: function (response) {
-        let message = "Payment complete! Reference: " + response.reference;
-        alert(message);
-        // You can also handle post-payment actions here (e.g., save the payment details to your database)
-      },
-    });
-
-    handler.openIframe();
-  }
 })(jQuery);
