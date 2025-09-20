@@ -1,3 +1,7 @@
+<?php
+$status = $_GET['status'] ?? '';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -182,6 +186,9 @@
     <!-- Page Header End -->
 
     <!-- Contact Start -->
+
+    
+
     <div
       class="container-fluid bg-light overflow-hidden px-lg-0"
       style="margin: 6rem 0"
@@ -200,63 +207,48 @@
                 To get in contact with us, fill out the form below, we will
                 reach out as quickly as we can.
               </p>
-              <form>
+              
+
+              <form action="send_mail.php" method="POST" class="mt-4">
                 <div class="row g-3">
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="name"
-                        placeholder="Your Name"
-                        required
-                      />
+                      <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required />
                       <label for="name">Your Name</label>
                     </div>
                   </div>
+
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        placeholder="Your Email"
-                        required
-                      />
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required />
                       <label for="email">Your Email</label>
                     </div>
                   </div>
+
                   <div class="col-12">
                     <div class="form-floating">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="subject"
-                        placeholder="Subject"
-                        required
-                      />
+                      <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required />
                       <label for="subject">Subject</label>
                     </div>
                   </div>
+
                   <div class="col-12">
                     <div class="form-floating">
-                      <textarea
-                        class="form-control"
-                        placeholder="Leave a message here"
-                        id="message"
-                        required
-                        style="height: 100px"
-                      ></textarea>
+                      <textarea class="form-control" id="message" name="message" placeholder="Leave a message here" required style="height: 100px"></textarea>
                       <label for="message">Message</label>
                     </div>
                   </div>
+                  <?php if ($status === 'success'): ?>
+                    <div class="alert alert-success w-100">✅ Message sent successfully!</div>
+                  <?php elseif ($status === 'error'): ?>
+                    <div class="alert alert-danger w-100">❌ Failed to send message. Try again.</div>
+                  <?php endif; ?>
                   <div class="col-12">
-                    <button class="btn btn-primary w-100 py-3" type="submit">
-                      Send Message
-                    </button>
+                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                   </div>
                 </div>
               </form>
+
             </div>
           </div>
           <!-- replace the google map with office map -->

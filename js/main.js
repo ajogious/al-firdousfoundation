@@ -113,8 +113,8 @@
     portfolioIsotope.isotope({ filter: $(this).data("filter") });
   });
 
-  const paymentForm = document.getElementById("paymentForm");
-  paymentForm.addEventListener("submit", payWithPaystack, false);
+  // const paymentForm = document.getElementById("paymentForm");
+  // paymentForm.addEventListener("submit", payWithPaystack, false);
 
   function payWithPaystack(e) {
     e.preventDefault();

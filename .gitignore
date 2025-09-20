@@ -1,0 +1,10 @@
+.env
+
+.DS_Store
+Thumbs.db
+
+*.log
+*.cache
+*.tmp
+
+/vendor/
