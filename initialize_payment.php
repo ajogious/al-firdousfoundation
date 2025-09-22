@@ -18,10 +18,10 @@ $payload = [
   'email' => $email,
   'amount' => $amountInSmallest,
   'currency' => $currency,
-  'callback_url' => 'http://localhost:8000/donation_callback.php',
+  'callback_url' => 'https://alfirdousfoundation.org/donation_callback.php',
   'metadata' => [
     'name' => $name,
-    'phone' => $phone
+    'phone' => $phone 
   ]
 ];
 
