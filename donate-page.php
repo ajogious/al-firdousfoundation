@@ -241,8 +241,8 @@ $status = $_GET['status'] ?? null;
               </table>
               <br />
               <!-- Donation Form -->
-              <form action="donation.php" method="POST">
-                <h2>Fill the below form after donation</h2>
+              <form action="donation.php" method="POST" id="donation-form">
+                <h2>Fill the below form for donation</h2>
                 <div class="row g-3">
                   <div class="col-12 col-sm-6">
                     <input
@@ -312,7 +312,7 @@ $status = $_GET['status'] ?? null;
 
                   <div class="col-12">
                     <button class="btn btn-primary w-100 py-3" type="submit">
-                      Submit Donation Info
+                      Donate
                     </button>
                   </div>
                 </div>

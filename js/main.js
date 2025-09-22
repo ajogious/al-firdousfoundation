@@ -117,4 +117,35 @@
 
     portfolioIsotope.isotope({ filter: $(this).data("filter") });
   });
+
+  // PayStack
+  document
+    .querySelector("#donation-form")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      // Convert to JSON
+      const payload = {};
+      data.forEach((v, k) => (payload[k] = v));
+
+      try {
+        const res = await fetch("initialize_payment.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json();
+
+        if (json.status && json.data.authorization_url) {
+          // Redirect donor to Paystack checkout
+          window.location.href = json.data.authorization_url;
+        } else {
+          alert("Payment could not be initialized. Try again.");
+        }
+      } catch (err) {
+        alert("An error occurred.");
+      }
+    });
 })(jQuery);
