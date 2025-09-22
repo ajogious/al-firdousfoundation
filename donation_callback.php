@@ -43,7 +43,7 @@ if ($result && $result['status'] && $result['data']['status'] === 'success') {
     $phone      = $data['metadata']['phone'] ?? '';
 
     // ✅ Step 2: Redirect user immediately
-    header("Location: /donation-success.html");
+    header("Location: /donation-page.php");
     ignore_user_abort(true);
     flush();
 
