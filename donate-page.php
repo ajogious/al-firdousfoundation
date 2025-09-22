@@ -152,7 +152,7 @@ $status = $_GET['status'] ?? null;
             >
             <div class="dropdown-menu fade-up m-0">
               <a href="feature.html" class="dropdown-item">Feature</a>
-              <a href="donate.php" class="dropdown-item active">Donate</a>
+              <a href="donate-page.php" class="dropdown-item active">Donate</a>
               <a href="team.html" class="dropdown-item">Our Team</a>
               <a href="testimonial.html" class="dropdown-item">Testimonial</a>
             </div>
@@ -160,7 +160,7 @@ $status = $_GET['status'] ?? null;
           <a href="contact.php" class="nav-item nav-link">Contact</a>
         </div>
         <a
-          href="donate.php"
+          href="donate-page.php"
           class="btn btn-light text-primary py-4 px-lg-5 d-none d-lg-block"
           >Donate<i class="fa fa-arrow-right ms-3"></i
         ></a>
