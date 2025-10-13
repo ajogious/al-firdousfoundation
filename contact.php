@@ -244,7 +244,7 @@ $status = $_GET['status'] ?? '';
                     <div class="alert alert-danger w-100">❌ Failed to send message. Try again.</div>
                   <?php endif; ?>
                   <div class="col-12">
-                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                    <button class="btn btn-primary w-100 py-3" type="submit" id="btn-message">Send Message</button>
                   </div>
                 </div>
               </form>
@@ -336,6 +336,7 @@ $status = $_GET['status'] ?? '';
               <button
                 type="button"
                 class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
+                id="sign-up"
               >
                 SignUp
               </button>

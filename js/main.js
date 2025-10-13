@@ -1,23 +1,21 @@
 (function ($) {
-  ("use strict");
-  // copyright year
+  "use strict";
+
+  // Copyright year
   document.getElementById("year").textContent = new Date().getFullYear();
-  // Spinner
-  // Spinner
+
+  // Spinner (page loader)
   var spinner = function () {
     setTimeout(function () {
       if ($("#spinner").length > 0) {
         $("#spinner").removeClass("show");
       }
-    }, 500); // delay a bit so it feels smooth
+    }, 500);
   };
 
-  // Run after full page load
-  $(window).on("load", function () {
-    spinner();
-  });
+  $(window).on("load", spinner);
 
-  // Initiate the wowjs
+  // WOW animation
   new WOW().init();
 
   // Sticky Navbar
@@ -29,7 +27,7 @@
     }
   });
 
-  // updating the ime at navigation
+  // Time updater
   function updateTime() {
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const now = new Date();
@@ -49,16 +47,12 @@
     updateTime();
   });
 
-  // updating the time at navigation end
-
-  // Back to top button
+  // Back to top
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 300) {
-      $(".back-to-top").fadeIn("slow");
-    } else {
-      $(".back-to-top").fadeOut("slow");
-    }
+    if ($(this).scrollTop() > 300) $(".back-to-top").fadeIn("slow");
+    else $(".back-to-top").fadeOut("slow");
   });
+
   $(".back-to-top").click(function () {
     $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
     return false;
@@ -97,33 +91,41 @@
       '<i class="bi bi-arrow-right"></i>',
     ],
     responsive: {
-      0: {
-        items: 1,
-      },
-      768: {
-        items: 2,
-      },
+      0: { items: 1 },
+      768: { items: 2 },
     },
   });
 
-  // Portfolio isotope and filter
+  // Portfolio filter
   var portfolioIsotope = $(".portfolio-container").isotope({
     itemSelector: ".portfolio-item",
     layoutMode: "fitRows",
   });
+
   $("#portfolio-flters li").on("click", function () {
     $("#portfolio-flters li").removeClass("active");
     $(this).addClass("active");
-
     portfolioIsotope.isotope({ filter: $(this).data("filter") });
   });
 
-  document
-    .getElementById("paystackBtn")
-    .addEventListener("click", async function () {
-      const form = document.getElementById("donation-form");
-      const btn = document.getElementById("paystackBtn");
+  // 🧩 Reusable Loading Helper
+  function setButtonLoading(button, text, restoreText = null) {
+    const original = restoreText || button.innerHTML;
+    button.dataset.originalText = original;
+    button.disabled = true;
+    button.innerHTML = `${text} <span class="spinner-border spinner-border-sm"></span>`;
+  }
 
+  function resetButton(button) {
+    button.disabled = false;
+    button.innerHTML = button.dataset.originalText || "Submit";
+  }
+
+  // 🟢 Paystack (Card payment)
+  const payBtn = document.getElementById("paystackBtn");
+  if (payBtn) {
+    payBtn.addEventListener("click", async function () {
+      const form = document.getElementById("donation-form");
       const data = {
         name: form.name.value,
         email: form.email.value,
@@ -137,10 +139,7 @@
         return;
       }
 
-      // Disable button + show spinner
-      btn.disabled = true;
-      btn.innerHTML =
-        'Redirecting to Paystack... <span class="spinner-border spinner-border-sm"></span>';
+      setButtonLoading(payBtn, "Redirecting to Paystack...");
 
       try {
         const response = await fetch("initialize_payment.php", {
@@ -151,27 +150,47 @@
 
         const result = await response.json();
 
-        if (result.status && result.data && result.data.authorization_url) {
+        if (result.status && result.data?.authorization_url) {
           window.location.href = result.data.authorization_url;
         } else {
           alert("Failed to initialize payment. Please try again.");
-          btn.disabled = false;
-          btn.innerHTML = "Donate with Card 💳";
+          resetButton(payBtn);
         }
       } catch (err) {
         console.error(err);
         alert("Something went wrong initializing the payment.");
-        btn.disabled = false;
-        btn.innerHTML = "Donate with Card 💳";
+        resetButton(payBtn);
       }
     });
+  }
 
-  document
-    .getElementById("donation-form")
-    .addEventListener("submit", function () {
+  // 🟢 Donation form (Normal submit)
+  const donationForm = document.getElementById("donation-form");
+  if (donationForm) {
+    donationForm.addEventListener("submit", function () {
       const btn = document.getElementById("donateBtn");
-      btn.disabled = true;
-      btn.innerHTML =
-        'Processing... <span class="spinner-border spinner-border-sm"></span>';
+      if (btn) setButtonLoading(btn, "Processing...");
     });
+  }
+
+  // 🟢 Newsletter
+  const newsletterBtn = document.getElementById("sign-up");
+  if (newsletterBtn) {
+    newsletterBtn.addEventListener("click", function () {
+      setButtonLoading(newsletterBtn, "Subscribing...");
+      setTimeout(() => {
+        alert("✅ You’ve been subscribed!");
+        resetButton(newsletterBtn);
+      }, 2000);
+    });
+  }
+
+  // 🟢 Contact Form
+  const contactForm = document.querySelector("form[action='send_mail.php']");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function () {
+      const btn = document.getElementById("btn-message");
+      if (btn) setButtonLoading(btn, "Sending...");
+    });
+  }
 })(jQuery);
