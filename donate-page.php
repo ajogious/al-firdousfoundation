@@ -1,5 +1,5 @@
 <?php
-$status = $_GET['status'] ?? null;
+$status = $_GET['status'] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -310,10 +310,19 @@ $status = $_GET['status'] ?? null;
                     <div class="alert alert-danger col-12">❌ Oops! Something went wrong. Please try again.</div>
                   <?php endif; ?>
 
-                  <div class="col-12">
-                    <button class="btn btn-primary w-100 py-3" type="submit">
-                      Donate
-                    </button>
+                 <div class="col-12">
+               <button id="donateBtn" class="btn btn-primary w-100 py-3" type="submit">
+                  Donate
+                </button>
+
+              </div>
+
+                <div class="col-12 mt-3">
+                  <button type="button" id="paystackBtn" class="btn btn-success w-100 py-3">
+                    Donate with Card 💳
+                  </button>
+                </div>
+
                   </div>
                 </div>
               </form>

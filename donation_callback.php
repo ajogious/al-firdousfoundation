@@ -70,7 +70,7 @@ if ($result && $result['status'] && $result['data']['status'] === 'success') {
             $mail->Port       = 587;
             $mail->Timeout    = 15;
 
-            $mail->setFrom($env['SMTP_USER'], 'Your Org Name');
+            $mail->setFrom($env['SMTP_USER'], 'Al-Firdous Humanitarian Foundation');
             if (filter_var($donorEmail, FILTER_VALIDATE_EMAIL)) {
                 $mail->addAddress($donorEmail, $name);
             }
@@ -97,7 +97,7 @@ if ($result && $result['status'] && $result['data']['status'] === 'success') {
             $adminMail->Port       = 587;
             $adminMail->Timeout    = 15;
 
-            $adminMail->setFrom($env['SMTP_USER'], 'Donation System');
+            $adminMail->setFrom($env['SMTP_USER'], 'Al-Firdous Humanitarian Foundation');
             if (!empty($env['ADMIN_EMAIL'])) {
                 $adminMail->addAddress($env['ADMIN_EMAIL']);
             }

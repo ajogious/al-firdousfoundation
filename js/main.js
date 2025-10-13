@@ -118,34 +118,60 @@
     portfolioIsotope.isotope({ filter: $(this).data("filter") });
   });
 
-  // PayStack
   document
-    .querySelector("#donation-form")
-    .addEventListener("submit", async function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
+    .getElementById("paystackBtn")
+    .addEventListener("click", async function () {
+      const form = document.getElementById("donation-form");
+      const btn = document.getElementById("paystackBtn");
 
-      // Convert to JSON
-      const payload = {};
-      data.forEach((v, k) => (payload[k] = v));
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        amount: form.amount.value,
+        currency: form.currency.value,
+      };
+
+      if (!data.name || !data.email || !data.amount) {
+        alert("Please fill in your name, email, and amount before continuing.");
+        return;
+      }
+
+      // Disable button + show spinner
+      btn.disabled = true;
+      btn.innerHTML =
+        'Redirecting to Paystack... <span class="spinner-border spinner-border-sm"></span>';
 
       try {
-        const res = await fetch("initialize_payment.php", {
+        const response = await fetch("initialize_payment.php", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
+          body: JSON.stringify(data),
         });
-        const json = await res.json();
 
-        if (json.status && json.data.authorization_url) {
-          // Redirect donor to Paystack checkout
-          window.location.href = json.data.authorization_url;
+        const result = await response.json();
+
+        if (result.status && result.data && result.data.authorization_url) {
+          window.location.href = result.data.authorization_url;
         } else {
-          alert("Payment could not be initialized. Try again.");
+          alert("Failed to initialize payment. Please try again.");
+          btn.disabled = false;
+          btn.innerHTML = "Donate with Card 💳";
         }
       } catch (err) {
-        alert("An error occurred.");
+        console.error(err);
+        alert("Something went wrong initializing the payment.");
+        btn.disabled = false;
+        btn.innerHTML = "Donate with Card 💳";
       }
+    });
+
+  document
+    .getElementById("donation-form")
+    .addEventListener("submit", function () {
+      const btn = document.getElementById("donateBtn");
+      btn.disabled = true;
+      btn.innerHTML =
+        'Processing... <span class="spinner-border spinner-border-sm"></span>';
     });
 })(jQuery);
